@@ -11,30 +11,31 @@ function App() {
 
   const [cartItems, setCartItems] = useState([])
 
-  const handleInc = (product) => {
+  const handleInc = (product, amount = 1) => {
     const prod = cartItems.find((item) => item._id === product._id);
     // if product doesn't exists in cart
     if (!prod) {
-      return setCartItems((prev) => [...prev, { ...product, qty: 1 }]);
+      return setCartItems((prev) => [...prev, { ...product, qty: amount }]);
     }
-    // if exists then increment the qty with 1
+    // if exists then increment the qty with amount
     const _items = cartItems.map((item) => ({
       ...item,
-      qty: product._id === item._id ? item.qty + 1 : item.qty,
+      qty: product._id === item._id ? item.qty + amount : item.qty,
     }));
     setCartItems(_items);
   };
 
 
   const handleDec = (product) => {
-    if (product.qty > 1) {
+    const prod = cartItems.find((item) => item._id === product._id);
+    if (prod && prod.qty > 1) {
       const _items = cartItems.map((item) => ({
         ...item,
         qty: product._id === item._id ? item.qty - 1 : item.qty,
       }));
       return setCartItems(_items);
     }
-  }
+  };
 
   return (
     <CartContext.Provider value={{ cartItems, handleInc, handleDec }}>
@@ -46,7 +47,7 @@ function App() {
     </CartContext.Provider>
   );
 
-} 
+}
 
 
 export default App;

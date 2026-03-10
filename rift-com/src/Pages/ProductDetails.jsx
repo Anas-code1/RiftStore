@@ -16,6 +16,7 @@ const ProductDetails = () => {
   const { handleInc } = useContext(CartContext);
 
   const [product, setProduct] = useState();
+  const [localQty, setLocalQty] = useState(1);
   const { id } = useParams();
 
   const getProduct = async () => {
@@ -72,10 +73,15 @@ const ProductDetails = () => {
               <p className="text-[16px] md:text-[18px] text-black">{product?.description}</p>
             </Row>
             <div className="w-full mt-[30px] md:mt-[40px]">
-              <QtyContainer data={product} />
+              <QtyContainer
+                data={product}
+                qty={localQty}
+                onInc={() => setLocalQty(localQty + 1)}
+                onDec={() => localQty > 1 && setLocalQty(localQty - 1)}
+              />
             </div>
             <Button
-              onClick={() => handleInc(product)}
+              onClick={() => handleInc(product, localQty)}
               title="Add to Cart"
               className="h-[52px] w-[174px] mt-[20px]"
             />
