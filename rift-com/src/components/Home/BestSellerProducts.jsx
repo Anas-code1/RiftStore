@@ -41,17 +41,17 @@ const BestSellerProducts = () => {
       <h1 className="w-full text-center text-[30px] text-[#1e2832] font-semibold mt-[80px] mb-[40px] uppercase">
         Best Seller Products
       </h1>
-      <Row className="items-center">
+      <Row className="items-center flex-wrap gap-y-[15px] mb-[20px]">
         <p
           onClick={() => handleGetProduct()}
-          className={`text-[16px] mr-[40px] cursor-pointer hover:text-[#757575] ${activeCategory === 'all' ? 'text-black font-bold' : 'text-[#00000080]'}`}
+          className={`text-[16px] mr-[20px] md:mr-[40px] cursor-pointer hover:text-[#757575] ${activeCategory === 'all' ? 'text-black font-bold' : 'text-[#00000080]'}`}
         >
           All Products
         </p>
         {categories.map((item) => (
           <p
             onClick={() => handleGetProduct(item._id)}
-            className={`text-[16px] mr-[40px] cursor-pointer hover:text-[#757575] ${activeCategory === item._id ? 'text-black font-bold border-b-2 border-black' : 'text-[#00000080]'}`}
+            className={`text-[16px] mr-[20px] md:mr-[40px] cursor-pointer hover:text-[#757575] ${activeCategory === item._id ? 'text-black font-bold border-b-2 border-black' : 'text-[#00000080]'}`}
             style={{ transition: 'all 0.3s ease' }}
             key={item._id}
           >
@@ -60,9 +60,9 @@ const BestSellerProducts = () => {
         ))}
       </Row>
       {products.length > 0 ? (
-        <Row className="flex-wrap gap-[1%] mt-[40px]">
+        <Row className="flex-wrap gap-y-[20px] justify-between mt-[40px]">
           {products.map((item) => (
-            <div className="w-[24%] mb-[20px]" key={item._id}>
+            <div className="w-full sm:w-[48%] lg:w-[24%] mb-[20px]" key={item._id}>
               <ProductCard data={item} />
             </div>
           ))}

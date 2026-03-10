@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import Row from "./common/Row";
 const ProductCard = ({ data }) => {
   return (
-    <Link className="w-full shadow pb-[5px]" to={`/product/${data._id}`}>
+    <Link className="w-full shadow pb-[5px] block" to={`/product/${data._id}`}>
       <img
         src={data.img}
         alt={data.title}
-        className="w-full object-cover h-[400px]"
+        className="w-full object-cover h-[250px] md:h-[300px] lg:h-[400px]"
       />
       <Row className="px-[10px]">
         <h6 className="text-black text-[16px] font-semibold mt-[18px]">

@@ -32,46 +32,46 @@ const ProductDetails = () => {
 
   return (
     <Layout>
-      <Container className="my-[41px]">
-        <Row className="justify-between">
-          <Row className="w-[47%]">
+      <Container className="my-[20px] md:my-[41px]">
+        <Row className="flex-col md:flex-row justify-between gap-[30px] md:gap-0">
+          <Row className="w-full md:w-[47%]">
             <img
-              className="w-full object-cover h-[80vh]"
+              className="w-full object-cover h-auto md:h-[80vh] aspect-square md:aspect-auto"
               src={product?.img}
               alt={product?.title}
             />
           </Row>
-          <Row className="flex-col w-[47%]">
-            <h1 className="text-[30px] text-slate-700 font-semibold mb-[70px]">
+          <Row className="flex-col w-full md:w-[47%]">
+            <h1 className="text-[24px] md:text-[30px] text-slate-700 font-semibold mb-[30px] md:mb-[70px]">
               {`${product?.category.title} | ${product?.title}`}
             </h1>
             <Row className="gap-[20px] mb-[10px]">
-              <p className="text-[18px] text-black font-medium w-[15%]">
+              <p className="text-[16px] md:text-[18px] text-black font-medium min-w-[30%] md:min-w-[15%]">
                 Rating:
               </p>
-              <p className="text-[18px] text-black">{product?.rating}</p>
+              <p className="text-[16px] md:text-[18px] text-black">{product?.rating}</p>
             </Row>
             <Row className="gap-[20px]">
-              <p className="text-[18px] text-black font-medium w-[15%]">
+              <p className="text-[16px] md:text-[18px] text-black font-medium min-w-[30%] md:min-w-[15%]">
                 Price:
               </p>
-              <p className="text-[18px] text-black">{product?.price}</p>
+              <p className="text-[16px] md:text-[18px] text-black">{product?.price}</p>
             </Row>
             <Row className="gap-[20px]">
-              <p className="text-[18px] text-black font-medium w-[15%]">
+              <p className="text-[16px] md:text-[18px] text-black font-medium min-w-[30%] md:min-w-[15%]">
                 Category:
               </p>
-              <p className="text-[18px] text-black">
+              <p className="text-[16px] md:text-[18px] text-black">
                 {product?.category.title}
               </p>
             </Row>
-            <Row className="gap-[20px] mt-[30px]">
-              <p className="text-[18px] text-black font-medium w-[15%]">
+            <Row className="gap-[20px] mt-[20px] md:mt-[30px]">
+              <p className="text-[16px] md:text-[18px] text-black font-medium min-w-[30%] md:min-w-[15%]">
                 Description:
               </p>
-              <p className="text-[18px] text-black">{product?.description}</p>
+              <p className="text-[16px] md:text-[18px] text-black">{product?.description}</p>
             </Row>
-            <div className="w-full mt-[40px]">
+            <div className="w-full mt-[30px] md:mt-[40px]">
               <QtyContainer data={product} />
             </div>
             <Button
