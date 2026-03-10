@@ -11,15 +11,15 @@ const TopHeader = () => {
   const { cartItems } = useContext(CartContext);
 
   return (
-    <div className="w-full px-[10%] h-full">
-      <Row className="flex items-center h-full justify-between">
+    <div className="w-full px-[10%] h-full max-md:h-auto max-md:py-[15px]">
+      <Row className="flex items-center h-full justify-between max-md:flex-col max-md:gap-[15px]">
         <SearchIcon />
         <Row className="items-center">
           <RotatedSquare />
-          <h1 className="text-[28px] text-black mx-[10px]">RiftCom</h1>
+          <h1 className="text-[28px] text-black mx-[10px] max-md:text-[24px]">RiftCom</h1>
           <RotatedSquare />
         </Row>
-        <Row>
+        <Row className="max-md:w-full max-md:justify-center max-md:gap-[20px]">
           <HeaderButton title="Account" Icon={UserIcon} />
           <HeaderButton
             title={`Cart (${cartItems.length})`}
