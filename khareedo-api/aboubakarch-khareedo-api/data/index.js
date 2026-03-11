@@ -172,7 +172,7 @@ const products = [
   },
 ];
 
-const sortProductDescByRating = (numberOfProducts = 8) => {
+const sortProductDescByRating = (numberOfProducts = 18) => {
   const prods = products.sort((a, b) => b.rating - a.rating);
   return prods.slice(0, numberOfProducts);
 };
