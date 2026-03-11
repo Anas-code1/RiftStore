@@ -149,7 +149,7 @@ const products = [
   {
     id: 16,
     title: 'Midnight Chelsea Boots',
-    img: 'https://images.unsplash.com/photo-1638247025967-b4e38f687b76?auto=format&fit=crop&w=800&q=60',
+    img: 'https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=800&q=60',
     price: '$450',
     category: 4,
     rating: 9,
@@ -165,7 +165,7 @@ const products = [
   {
     id: 18,
     title: 'Canvas Tote',
-    img: 'https://images.unsplash.com/photo-1544816153-12ad5d714312?auto=format&fit=crop&w=800&q=60',
+    img: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=60',
     price: '$95',
     category: 5,
     rating: 5,
