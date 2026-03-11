@@ -20,8 +20,8 @@ const category = [
     name: 'Bags',
   },
   {
-    id: 7,
-    name: 'Jacket',
+    id: 6,
+    name: 'Accessories',
   },
 ];
 
@@ -121,6 +121,54 @@ const products = [
     price: '$230',
     category: 2,
     rating: 7,
+  },
+  {
+    id: 13,
+    title: 'Minimalist Trench',
+    img: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=60',
+    price: '$520',
+    category: 3,
+    rating: 9,
+  },
+  {
+    id: 14,
+    title: 'Leather Weekend Bag',
+    img: 'https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=800&q=60',
+    price: '$380',
+    category: 5,
+    rating: 8,
+  },
+  {
+    id: 15,
+    title: 'Slate Overshirt',
+    img: 'https://images.unsplash.com/photo-1617114919297-3c8ddb01f599?auto=format&fit=crop&w=800&q=60',
+    price: '$210',
+    category: 1,
+    rating: 6,
+  },
+  {
+    id: 16,
+    title: 'Midnight Chelsea Boots',
+    img: 'https://images.unsplash.com/photo-1638247025967-b4e38f687b76?auto=format&fit=crop&w=800&q=60',
+    price: '$450',
+    category: 4,
+    rating: 9,
+  },
+  {
+    id: 17,
+    title: 'Architectural Watch',
+    img: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=60',
+    price: '$890',
+    category: 6,
+    rating: 10,
+  },
+  {
+    id: 18,
+    title: 'Canvas Tote',
+    img: 'https://images.unsplash.com/photo-1544816153-12ad5d714312?auto=format&fit=crop&w=800&q=60',
+    price: '$95',
+    category: 5,
+    rating: 5,
   },
 ];
 
