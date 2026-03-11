@@ -16,7 +16,7 @@ const TopHeader = () => {
         <SearchIcon />
         <Row className="items-center">
           <RotatedSquare />
-          <h1 className="text-[28px] text-black mx-[10px] max-md:text-[24px]">RiftCom</h1>
+          <h1 className="text-[28px] text-black mx-[10px] max-md:text-[24px]">Modra</h1>
           <RotatedSquare />
         </Row>
         <Row className="max-md:w-full max-md:justify-center max-md:gap-[20px]">
