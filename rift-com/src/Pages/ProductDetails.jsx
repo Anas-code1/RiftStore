@@ -1,19 +1,19 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import client from '../apis';
-import apiEndpoints from '../apis/endpoint';
-import Button from '../components/common/Button';
-import Container from '../components/common/Container';
-import Layout from '../components/common/Layout';
-import QtyContainer from '../components/common/QtyContainer';
-import Row from '../components/common/Row';
-import { useContext } from 'react';
-import { CartContext } from '../contextAPIs';
+import React from "react";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useEffect } from "react";
+import client from "../apis";
+import apiEndpoints from "../apis/endpoint";
+import Button from "../components/common/Button";
+import Container from "../components/common/Container";
+import Layout from "../components/common/Layout";
+import QtyContainer from "../components/common/QtyContainer";
+import Row from "../components/common/Row";
+import { useContext } from "react";
+import { CartContext } from "../contextAPIs";
 
 const ProductDetails = () => {
-  const { handleInc } = useContext(CartContext);
+  const { handleInc , toast} = useContext(CartContext);
 
   const [product, setProduct] = useState();
   const [localQty, setLocalQty] = useState(1);
@@ -24,7 +24,7 @@ const ProductDetails = () => {
       const response = await client.get(apiEndpoints.product(id));
       setProduct(response.data);
     } catch (error) {
-      console.log('ERROR', error);
+      console.log("ERROR", error);
     }
   };
   useEffect(() => {
@@ -50,13 +50,17 @@ const ProductDetails = () => {
               <p className="text-[16px] md:text-[18px] text-black font-medium min-w-[30%] md:min-w-[15%]">
                 Rating:
               </p>
-              <p className="text-[16px] md:text-[18px] text-black">{product?.rating}</p>
+              <p className="text-[16px] md:text-[18px] text-black">
+                {product?.rating}
+              </p>
             </Row>
             <Row className="gap-[20px]">
               <p className="text-[16px] md:text-[18px] text-black font-medium min-w-[30%] md:min-w-[15%]">
                 Price:
               </p>
-              <p className="text-[16px] md:text-[18px] text-black">{product?.price}</p>
+              <p className="text-[16px] md:text-[18px] text-black">
+                {product?.price}
+              </p>
             </Row>
             <Row className="gap-[20px]">
               <p className="text-[16px] md:text-[18px] text-black font-medium min-w-[30%] md:min-w-[15%]">
@@ -70,7 +74,9 @@ const ProductDetails = () => {
               <p className="text-[16px] md:text-[18px] text-black font-medium min-w-[30%] md:min-w-[15%]">
                 Description:
               </p>
-              <p className="text-[16px] md:text-[18px] text-black">{product?.description}</p>
+              <p className="text-[16px] md:text-[18px] text-black">
+                {product?.description}
+              </p>
             </Row>
             <div className="w-full mt-[30px] md:mt-[40px]">
               <QtyContainer
@@ -85,6 +91,19 @@ const ProductDetails = () => {
               title="Add to Cart"
               className="h-[52px] w-[174px] mt-[20px]"
             />
+            {toast && (
+              <span
+                style={{
+                  color: "#16a34a",
+                  fontWeight: "500",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "5px",
+                }}
+              >
+                ✅ Item added to cart!
+              </span>
+            )}
           </Row>
         </Row>
       </Container>

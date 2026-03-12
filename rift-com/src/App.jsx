@@ -10,6 +10,7 @@ import { CartContext } from "./contextAPIs";
 function App() {
 
   const [cartItems, setCartItems] = useState([])
+  const [toast, setToast] = useState(false);
 
   const handleInc = (product, amount = 1) => {
     const prod = cartItems.find((item) => item._id === product._id);
@@ -23,6 +24,10 @@ function App() {
       qty: product._id === item._id ? item.qty + amount : item.qty,
     }));
     setCartItems(_items);
+    setToast(true);
+    setTimeout(() => {
+      setToast(false);
+    }, 3000);
   };
 
 
@@ -38,13 +43,14 @@ function App() {
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, handleInc, handleDec }}>
+    <CartContext.Provider value={{ cartItems, handleInc, handleDec, toast }}>
       <Router>
         <Route path="/" component={Home} exact />
         <Route path="/product/:id" component={ProductDetail} exact />
         <Route path="/cart" component={Cart} exact />
       </Router>
     </CartContext.Provider>
+    
   );
 
 }
