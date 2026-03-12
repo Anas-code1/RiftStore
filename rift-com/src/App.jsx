@@ -8,28 +8,31 @@ import Cart from "./Pages/Cart";
 import { CartContext } from "./contextAPIs";
 
 function App() {
-
-  const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useState([]);
   const [toast, setToast] = useState(false);
 
   const handleInc = (product, amount = 1) => {
     const prod = cartItems.find((item) => item._id === product._id);
+
     // if product doesn't exists in cart
     if (!prod) {
-      return setCartItems((prev) => [...prev, { ...product, qty: amount }]);
+      // 1. Removed the 'return' from here!
+      setCartItems((prev) => [...prev, { ...product, qty: amount }]);
+    } else {
+      // 2. Added an 'else' block for existing items
+      const _items = cartItems.map((item) => ({
+        ...item,
+        qty: product._id === item._id ? item.qty + amount : item.qty,
+      }));
+      setCartItems(_items);
     }
-    // if exists then increment the qty with amount
-    const _items = cartItems.map((item) => ({
-      ...item,
-      qty: product._id === item._id ? item.qty + amount : item.qty,
-    }));
-    setCartItems(_items);
+
+    // 3. Now the code will ALWAYS reach this point and show the toast!
     setToast(true);
     setTimeout(() => {
       setToast(false);
     }, 3000);
   };
-
 
   const handleDec = (product) => {
     const prod = cartItems.find((item) => item._id === product._id);
@@ -50,10 +53,7 @@ function App() {
         <Route path="/cart" component={Cart} exact />
       </Router>
     </CartContext.Provider>
-    
   );
-
 }
-
 
 export default App;
